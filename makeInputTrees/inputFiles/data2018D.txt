@@ -1,0 +1,8 @@
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2061.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2077.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2086.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2099.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2113.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2119.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2517.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/Data2018D/qcd_EmEnriched_ntuples_2960.root

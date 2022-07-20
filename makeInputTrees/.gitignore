@@ -1,0 +1,7 @@
+*.exe
+*.root
+condor/log
+condor/error
+condor/output
+workarea
+workarea/*

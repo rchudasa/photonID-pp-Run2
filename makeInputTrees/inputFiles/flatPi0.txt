@@ -1,0 +1,4 @@
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/flatpi0/bmmgNtuple_v3_1.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/flatpi0/bmmgNtuple_v3_2.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/flatpi0/bmmgNtuple_v3_3.root
+root://se01.indiacms.res.in:1094//cms/store/user/athachay/BsToMuMuGamma/Run2Studies/PhotonIDNtuples/flatpi0/bmmgNtuple_v3_4.root
