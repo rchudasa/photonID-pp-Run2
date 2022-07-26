@@ -4,20 +4,16 @@ source /cvmfs/cms.cern.ch/cmsset_default.sh
 export HOME=/home/rchudasa
 export X509_USER_PROXY=/grid_mnt/t3home/rchudasa/grid_proxy/x509up_u56678
 
-dir=/home/rchudasa/work/bsMM/photonID-pp-Run2/makeInputTrees
+dir=/home/rchudasa/work/bsMM/CMSSW_10_6_29/src/photonID-pp-Run2/makeInputTrees
 pwd 
 uname -a
-
-#root setup
-#source /cvmfs/sft.cern.ch/lcg/contrib/gcc/4.8/x86_64-centos7-gcc48-opt/setup.sh
-#source /cvmfs/sft.cern.ch/lcg/app/releases/ROOT/6.24.06/x86_64-centos7-gcc48-opt/bin/thisroot.sh
 
 inputPath=""
 outputPath=""
 sampleName=""
 configPath=""
 
-suffix="_20July22_v7"
+suffix="_20July22_v1"
 
 TMPDIR=`mktemp -d`
 cd $TMPDIR
@@ -30,10 +26,23 @@ then
   outputPath="${dir}/workarea/mc_flat_pt_pi0/mvaTrees${suffix}"
 elif [ $2 -eq 1 ]
 then
-  sampleName="flatPtPhoton" # 10400 files
-  configPath="$dir/configs/SinglePhoton.cfg" # 10400 files
-  inputPath="${basePath}/mc_flat_pt_photon/flatPtPhoton_5p02TeV_PbPb/flatPtPhoton_HiForest_v2/220411_102132/0000/flatPtMC_HiForestAOD_${1}.root"
-  outputPath="${basePath}/mc_flat_pt_photon/mvaTrees${suffix}"
+  sampleName="BsMMG" # 10400 files
+  configPath="$dir/configs/BsJpsiGamma.cfg" # 10400 files
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/bsToMuMuGamma.txt`
+  outputPath="${dir}/workarea/mc_bsMMG/mvaTrees${suffix}"
+elif [ $2 -eq 2 ]
+then
+  sampleName="BsJpsiGamma" # 10400 files 
+  configPath="$dir/configs/BsJpsiGamma.cfg" 
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/bsToJpsiGamma.txt`
+  outputPath="${dir}/workarea/mc_bsToJpsiGamma/mvaTrees${suffix}"
+elif [ $2 -eq 3 ]
+then
+  sampleName="Data" # 10400 files
+  configPath="$dir/configs/Pi0Sample.cfg" 
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/data2018D.txt`
+  outputPath="${dir}/workarea/data/mvaTrees${suffix}"
+
 fi
 
 cp $configPath .

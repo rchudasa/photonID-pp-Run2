@@ -464,10 +464,10 @@ void TreeMaker::genParticleSCMaker()
     std::cout<<" Number of candidates              : "<<nCands<<"\n";
 }
 
-/*
+
 void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
 {
-    AddSCHistos("genMatchedBMMGSC_");
+    //AddSCHistos("genMatchedBMMGSC_");
     AddSCTree("genMatchedBMMGSCTree");
     th1fStore["genBsGammaPt"                      ]  = new TH1F("genBsGammaPt" ,"Pt of GEN", pTBins , pTmin  , pTmax  );
     th1fStore["genBsGammaEta"                     ]  = new TH1F("genBsGammaEta","Eta of GEN", etaBins , etamin  , etamax  );
@@ -540,7 +540,7 @@ void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
             
             if( scMatchIdx > -1)
             {
-                fill_scHists(scMatchIdx,"genMatchedBMMGSC_",drMin);
+                //fill_scHists(scMatchIdx,"genMatchedBMMGSC_",drMin);
                 fillSCVariablesToOutTree(scMatchIdx,"genMatchedBMMGSCTree");
                 nCands++;
                 foundmatch=true;
@@ -565,11 +565,11 @@ void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
                         drMin=dr;
                  }
             }
-            fill_scHists(j,"allSC_",dr);
+            //fill_scHists(j,"allSC_",dr);
             
 
        }
-      fill_eventHists();
+      //fill_eventHists();
     }
 
     std::cout<<" Number of Evnets processed        : "<<EventCount<<"\n";
@@ -581,7 +581,7 @@ void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
 
 void TreeMaker::genParticleBMMGSCMaker()
 {
-    AddSCHistos("genMatchedBMMGSC_");
+    //AddSCHistos("genMatchedBMMGSC_");
     AddSCTree("genMatchedBMMGSCTree");
     th1fStore["genBsGammaPt"                      ]  = new TH1F("genBsGammaPt" ,"Pt of GEN", pTBins , pTmin  , pTmax  );
     th1fStore["genBsGammaEta"                     ]  = new TH1F("genBsGammaEta","Eta of GEN", etaBins , etamin  , etamax  );
@@ -651,7 +651,7 @@ void TreeMaker::genParticleBMMGSCMaker()
             
             if( scMatchIdx > -1)
             {
-                fill_scHists(scMatchIdx,"genMatchedBMMGSC_",drMin);
+                //fill_scHists(scMatchIdx,"genMatchedBMMGSC_",drMin);
                 fillSCVariablesToOutTree(scMatchIdx,"genMatchedBMMGSCTree");
                 nCands++;
                 foundmatch=true;
@@ -676,18 +676,18 @@ void TreeMaker::genParticleBMMGSCMaker()
                         drMin=dr;
                  }
             }
-            fill_scHists(j,"allSC_",dr);
+            //fill_scHists(j,"allSC_",dr);
             
 
        }
-      fill_eventHists();
+      //fill_eventHists();
     }
 
     std::cout<<" Number of Evnets processed        : "<<EventCount<<"\n";
     std::cout<<" Number of Evnets with candidates  : "<<EventCountWithCand<<"\n";
     std::cout<<" Number of candidates              : "<<nCands<<"\n";
 }
-*/
+
 void TreeMaker::setupOutputSCTree()
 {
 }

@@ -1,4 +1,5 @@
-#include "SCMVANtuple.h"
+//#include "SCMVANtuple.h"
+#include "SCMVANtupleJspiGamma.h"
 #include "Util.h"
 #include "chrono"
 #define NSTORAGE_ARRAY_MAX 5000
