@@ -2,7 +2,7 @@
 #include "SCMVANtupleJspiGamma.h"
 #include "Util.h"
 #include "chrono"
-#define NSTORAGE_ARRAY_MAX 5000
+#define NSTORAGE_ARRAY_MAX 10000
 
 class genericMatrixStore
 {
@@ -116,7 +116,7 @@ class TreeMaker
     void genParticleSCMaker();
     void Pi0ParticleSCMaker();  
     void genParticleBMMGSCMaker();
-    void genParticleBMMGSCMakerJPsiGamma();
+    //void genParticleBMMGSCMakerJPsiGamma();
     void AssignECALClusterVariables( Int_t scIdx);
     void AssignHCALClusterVariables( Int_t scIdx);
     void AssignPFVariables(Int_t) ;

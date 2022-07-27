@@ -13,32 +13,62 @@ outputPath=""
 sampleName=""
 configPath=""
 
-suffix="_20July22_v1"
+suffix="_barrel"
 
 TMPDIR=`mktemp -d`
 cd $TMPDIR
 
 if [ $2 -eq 0 ]
 then
-  sampleName="flatPtPi0" # 10400 files
-  configPath="$dir/configs/Pi0Sample.cfg" # 10400 files
+  sampleName="flatPtPi0" # 4 files
+  configPath="$dir/configs/Pi0Sample.cfg" 
   inputPath=`sed "${1}q;d" ${dir}/inputFiles/flatPi0.txt`
   outputPath="${dir}/workarea/mc_flat_pt_pi0/mvaTrees${suffix}"
 elif [ $2 -eq 1 ]
 then
-  sampleName="BsMMG" # 10400 files
-  configPath="$dir/configs/BsJpsiGamma.cfg" # 10400 files
-  inputPath=`sed "${1}q;d" ${dir}/inputFiles/bsToMuMuGamma.txt`
-  outputPath="${dir}/workarea/mc_bsMMG/mvaTrees${suffix}"
+  sampleName="QCD-15To7000" #60 files 
+  configPath="$dir/configs/Pi0Sample.cfg" 
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/qcd15To7000.txt`
+  outputPath="${dir}/workarea/mc_qcd15To7000/mvaTrees${suffix}"
 elif [ $2 -eq 2 ]
 then
-  sampleName="BsJpsiGamma" # 10400 files 
+  sampleName="QCD-30To50" 
+  configPath="$dir/configs/Pi0Sample.cfg"
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/qcd30To50.txt`
+  outputPath="${dir}/workarea/qcd30To50/mvaTrees${suffix}"
+elif [ $2 -eq 3 ]
+then
+  sampleName="QCD-50To80"
+  configPath="$dir/configs/Pi0Sample.cfg"
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/qcd50To80.txt`
+  outputPath="${dir}/workarea/qcd50To80/mvaTrees${suffix}"
+elif [ $2 -eq 4 ]
+then
+  sampleName="QCD-20To30EMEnriched" 
+  configPath="$dir/configs/Pi0Sample.cfg" 
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/qcd20To30EmEnriched.txt`
+  outputPath="${dir}/workarea/qcd20To30EmEnriched/mvaTrees${suffix}"
+elif [ $2 -eq 5 ]
+then
+  sampleName="QCD-30To50EMEnriched" 
+  configPath="$dir/configs/Pi0Sample.cfg" 
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/qcd30To50EmEnriched.txt`
+  outputPath="${dir}/workarea/qcd30To50EmEnriched/mvaTrees${suffix}"
+elif [ $2 -eq 6 ]
+then
+  sampleName="BsMMG" 
+  configPath="$dir/configs/BsJpsiGamma.cfg" 
+  inputPath=`sed "${1}q;d" ${dir}/inputFiles/bsToMuMuGamma.txt`
+  outputPath="${dir}/workarea/mc_bsMMG/mvaTrees${suffix}"
+elif [ $2 -eq 7 ]
+then
+  sampleName="BsJpsiGamma" 
   configPath="$dir/configs/BsJpsiGamma.cfg" 
   inputPath=`sed "${1}q;d" ${dir}/inputFiles/bsToJpsiGamma.txt`
   outputPath="${dir}/workarea/mc_bsToJpsiGamma/mvaTrees${suffix}"
-elif [ $2 -eq 3 ]
+elif [ $2 -eq 8 ]
 then
-  sampleName="Data" # 10400 files
+  sampleName="Data" 
   configPath="$dir/configs/Pi0Sample.cfg" 
   inputPath=`sed "${1}q;d" ${dir}/inputFiles/data2018D.txt`
   outputPath="${dir}/workarea/data/mvaTrees${suffix}"

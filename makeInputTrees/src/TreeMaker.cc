@@ -120,12 +120,14 @@ void TreeMaker::Pi0ParticleSCMaker()
        
        EventCount++;
        foundmatch=false;
-        
+       
+         
+        //std::cout<<"Entry:"<<jentry << "\t" <<ntupleRawTree.nMC<< "  gen particle min pt:" << genParticlePtMin <<"\n";
        if(isMC)
        for(int i=0;i < ntupleRawTree.nMC ; i++)
        {
            //std::cout << "\n"; 
-           //std::cout<<"Entry:"<<jentry << "\t" << i<<"/"<<ntupleRawTree.nMC<<"pdg id : "<<(ntupleRawTree.mcPID)->at(i)<<" pt : "<<(ntupleRawTree.mcPt)->at(i)<<" eta : "<<(ntupleRawTree.mcEta)->at(i)<<" phi : "<<ntupleRawTree.mcPhi->at(i)<<"\n";
+           //std::cout<<"Entry:"<<jentry << "\t" << i<<"/"<<ntupleRawTree.nMC<<"  pdg id : "<<(ntupleRawTree.mcPID)->at(i)<<" pt : "<<(ntupleRawTree.mcPt)->at(i)<<" eta : "<<(ntupleRawTree.mcEta)->at(i)<<" phi : "<<ntupleRawTree.mcPhi->at(i)<<"\n";
             if(ntupleRawTree.mcPID->at(i) != genParticlePDGID ) continue;
             if(ntupleRawTree.mcPt->at(i)  < genParticlePtMin ) continue;
             if(genParticleIsStable) if( ntupleRawTree.mcStatus->at(i) != 1 ) continue;
@@ -135,11 +137,13 @@ void TreeMaker::Pi0ParticleSCMaker()
             for(int idx=0;idx < ntupleRawTree.nMC ; idx++)
             {
                 if(ntupleRawTree.mcPID->at(idx) != 22 ) continue;
+                if(ntupleRawTree.mcPt->at(idx) < genParticlePtMin ) continue;
                 g1.SetPtEtaPhiM(ntupleRawTree.mcPt->at(idx) , ntupleRawTree.mcEta->at(idx) , ntupleRawTree.mcPhi->at(idx) , ntupleRawTree.mcMass->at(idx) );
                  //std::cout<<"\t\tpdg id : "<<(ntupleRawTree.mcPID)->at(idx)<<" pt : "<<(ntupleRawTree.mcPt)->at(idx)<<" eta : "<<(ntupleRawTree.mcEta)->at(idx)<<" phi : "<<ntupleRawTree.mcPhi->at(idx)<<"\n";
                 for(int jdx=idx+1;jdx < ntupleRawTree.nMC ; jdx++)
                 {
                     if(ntupleRawTree.mcPID->at(jdx) != 22 ) continue;
+                    if(ntupleRawTree.mcPt->at(jdx) < genParticlePtMin ) continue;
                     g2.SetPtEtaPhiM(ntupleRawTree.mcPt->at(jdx) , ntupleRawTree.mcEta->at(jdx) , ntupleRawTree.mcPhi->at(jdx) , ntupleRawTree.mcMass->at(jdx) );
                     dr=pi0.DeltaR(g1+g2);
                     //std::cout<<"\t\t\t\tpdg id : "<<(ntupleRawTree.mcPID)->at(jdx)<<" pt : "<<(ntupleRawTree.mcPt)->at(jdx)<<" eta : "<<(ntupleRawTree.mcEta)->at(jdx)<<" phi : "<<ntupleRawTree.mcPhi->at(jdx)<<" dr : "<<dr<<"\n";
@@ -161,9 +165,9 @@ void TreeMaker::Pi0ParticleSCMaker()
               g1.SetPtEtaPhiM(ntupleRawTree.mcPt->at(g1MCIdx) , ntupleRawTree.mcEta->at(g1MCIdx) , ntupleRawTree.mcPhi->at(g1MCIdx) , ntupleRawTree.mcMass->at(g1MCIdx) );
               g2.SetPtEtaPhiM(ntupleRawTree.mcPt->at(g2MCIdx) , ntupleRawTree.mcEta->at(g2MCIdx) , ntupleRawTree.mcPhi->at(g2MCIdx) , ntupleRawTree.mcMass->at(g2MCIdx) );
               g1g2DR=g1.DeltaR(g2);
-              th1fStore["gen_p0daugterGammaGammaDR"]->Fill(g1g2DR);
-              th1fStore["gen_Pi0Gamma1DR"]->Fill(pi0.DeltaR(g1));
-              th1fStore["gen_Pi0Gamma2DR"]->Fill(pi0.DeltaR(g2));
+              //th1fStore["gen_p0daugterGammaGammaDR"]->Fill(g1g2DR);
+              //th1fStore["gen_Pi0Gamma1DR"]->Fill(pi0.DeltaR(g1));
+              //th1fStore["gen_Pi0Gamma2DR"]->Fill(pi0.DeltaR(g2));
             }
             else
             {
@@ -182,7 +186,7 @@ void TreeMaker::Pi0ParticleSCMaker()
             
             isMerged=false;
 
-          // std::cout << jentry << " Number of superclusters :" << ntupleRawTree.nSC << "\n";
+           std::cout << jentry << " Number of superclusters :" << ntupleRawTree.nSC << "\n";
             for( Int_t j =0 ;j< ntupleRawTree.nSC ;j++)
             {
                 if(abs(ntupleRawTree.scEta->at(j)) < scAbsEtaMin ) continue;
@@ -464,7 +468,7 @@ void TreeMaker::genParticleSCMaker()
     std::cout<<" Number of candidates              : "<<nCands<<"\n";
 }
 
-
+/*
 void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
 {
     //AddSCHistos("genMatchedBMMGSC_");
@@ -576,7 +580,7 @@ void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
     std::cout<<" Number of Evnets with candidates  : "<<EventCountWithCand<<"\n";
     std::cout<<" Number of candidates              : "<<nCands<<"\n";
 }
-
+*/
 
 
 void TreeMaker::genParticleBMMGSCMaker()
