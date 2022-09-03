@@ -13,6 +13,7 @@ outputPath=""
 sampleName=""
 configPath=""
 
+#suffix="_endcap"
 suffix="_barrel"
 
 TMPDIR=`mktemp -d`

@@ -1,7 +1,9 @@
 Universe              = vanilla
 executable            = runMVADataMaker.sh
-arguments             = $(ProcId) 6 2 
-#arguments             = $(ProcId) 5 1 
+#arguments             = $(ProcId) 6 2 #for BsMMG 
+arguments             = $(ProcId) 7 4 #for BsJpsi Gamma sample
+#arguments             = $(ProcId) 5 1 #for all QCD and Pi0 samples 
+#arguments             = $(ProcId) 8 3 #for data 
 GetEnv                = True
 requirements          = (OpSysAndVer =?= "CentOS7")
 output                = output/$(ClusterId).$(ProcId).out
@@ -17,7 +19,10 @@ log                   = log/$(ClusterId).log
 #queue 60
  
 #BsToMuMuGamma
-queue 443
+#queue 443
 
 #BsToJpsi Gamma
-#queue 254 
+queue 254 
+#
+#Data
+#queue 9

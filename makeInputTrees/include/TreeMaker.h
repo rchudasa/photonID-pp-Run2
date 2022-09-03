@@ -116,7 +116,7 @@ class TreeMaker
     void genParticleSCMaker();
     void Pi0ParticleSCMaker();  
     void genParticleBMMGSCMaker();
-    //void genParticleBMMGSCMakerJPsiGamma();
+    void genParticleBMMGSCMakerJPsiGamma();
     void AssignECALClusterVariables( Int_t scIdx);
     void AssignHCALClusterVariables( Int_t scIdx);
     void AssignPFVariables(Int_t) ;

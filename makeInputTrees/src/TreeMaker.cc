@@ -186,7 +186,7 @@ void TreeMaker::Pi0ParticleSCMaker()
             
             isMerged=false;
 
-           std::cout << jentry << " Number of superclusters :" << ntupleRawTree.nSC << "\n";
+           //std::cout << jentry << " Number of superclusters :" << ntupleRawTree.nSC << "\n";
             for( Int_t j =0 ;j< ntupleRawTree.nSC ;j++)
             {
                 if(abs(ntupleRawTree.scEta->at(j)) < scAbsEtaMin ) continue;
@@ -468,7 +468,7 @@ void TreeMaker::genParticleSCMaker()
     std::cout<<" Number of candidates              : "<<nCands<<"\n";
 }
 
-/*
+
 void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
 {
     //AddSCHistos("genMatchedBMMGSC_");
@@ -580,7 +580,7 @@ void TreeMaker::genParticleBMMGSCMakerJPsiGamma()
     std::cout<<" Number of Evnets with candidates  : "<<EventCountWithCand<<"\n";
     std::cout<<" Number of candidates              : "<<nCands<<"\n";
 }
-*/
+
 
 
 void TreeMaker::genParticleBMMGSCMaker()
