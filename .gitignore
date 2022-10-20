@@ -2,3 +2,11 @@
 */.swanproject
 trainMVA/figures_*
 trainMVA/Output_*
+trainMVA/BinaryClassification_XGBoost_*
+trainMVA/MultiClassification_XGBoost_*
+*.png
+*/*.png
+*/*/*.png
+*.pdf
+*/*.pdf
+*/*/*.pdf
