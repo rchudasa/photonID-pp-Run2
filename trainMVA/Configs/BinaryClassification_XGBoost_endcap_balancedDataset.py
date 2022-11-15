@@ -11,7 +11,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 #####################################################################
 ####Start here
 #####################################################################
-OutputDirName = 'MultiClassification_XGBoost_barrel_balance_dataset' #All plots, models, config file will be stored here
+OutputDirName = 'BinaryClassification_XGBoost_endcap-v1' #All plots, models, config file will be stored here
 branches=['scE',
           'scEt',
           'scEta',
@@ -39,23 +39,26 @@ branches=['scE',
          ]
 baseInputPath="/eos/user/r/rchudasa/SWAN_projects/photonID-pp-Run2/makeInputTrees/workarea/"
 Debug=True # If True, only a small subset of events/objects are used for either Signal or background #Useful for quick debugging
+processes = [
 
+
+]
 #Branches to read #Should be in the root files #Only the read branches can be later used for any purpose
 
 SaveDataFrameCSV,loadfromsaved=True,False #If loadfromsaved=True, dataframe stored in OutputDirName will be read
 
-Classes,ClassColors = ['Signal','QCD','Pi0','Data'],['#377eb8', '#ff7f00', '#4daf4a','#f781bf']
+Classes,ClassColors = ['IsolatedSignal','NonIsolated'],['#377eb8', '#ff7f00']
 #Remeber: For binary classification, first class of the Classes argument should be signal, otherwise, plots might not make sense.
 
 processes = [
-    {'Class':'Signal','fileName':'mc_signal_bsMMG_barrel.root',
-    'treeName':'genMatchedBMMGSCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)<1.4442 & (scFoundGsfMatch_ < 1)', 'process':'bsMMG', 'category':0, 'fraction':0.3},
-    {'Class':'QCD','fileName':'mc_qcd20To30EmEnriched_barrel.root',
-    'treeName':'mergedPi0_SCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)<1.4442 & (scFoundGsfMatch_ < 1)', 'process':'QCD','category':1, 'fraction':1}, 
-    {'Class':'Pi0','fileName':'mc_bkg_flat_pi0_barrel.root',
-    'treeName':'mergedPi0_SCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)<1.4442 & (scFoundGsfMatch_ < 1)', 'process':'Flat_pi0','category':2, 'fraction':1}, 
-    {'Class':'Data','fileName':'data_2018D_barrel.root',
-    'treeName':'dataAllSCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)<1.4442 & (scFoundGsfMatch_ < 1)', 'process':'Data','category':3, 'fraction':0.1}     
+    {'Class':'Signal','fileName':'mc_signal_bsMMG_endcap.root',
+    'treeName':'genMatchedBMMGSCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)>1.566 & abs(scEta) < 2.4 & (scFoundGsfMatch_ < 1)', 'process':'bsMMG', 'category':0, 'fraction' : 1},
+    {'Class':'Backg','fileName':'mc_qcd20To30EmEnriched_endcap.root',
+    'treeName':'mergedPi0_SCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)>1.566 & abs(scEta) < 2.4 & (scFoundGsfMatch_ < 1)', 'process':'QCD','category':1, 'fraction' : 0.4}, 
+    {'Class':'Backg','fileName':'mc_bkg_flat_pi0_endcap.root',
+    'treeName':'mergedPi0_SCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)>1.566 & abs(scEta)<2.4 & (scFoundGsfMatch_ < 1)', 'process':'Flat_pi0','category':1, 'fraction' : 1}, 
+    {'Class':'Backg','fileName':'data_2018D_endcap.root',
+    'treeName':'dataAllSCTree', 'selection':'(scEt>4) & (scEt<15) & abs(scEta)>1.566 & abs(scEta) < 2.4 & (scFoundGsfMatch_ < 1)', 'process':'Data','category':1, 'fraction' : 0.05}     
 ]
 
 
@@ -81,4 +84,4 @@ MVAs = [
 ]
 
 ptbins = [4,6,8,10,13,15]
-etabins = [-1.4442,-1.1,-0.8,-0.5,0,0.5,0.8,1.1,1.4442]
+etabins=[-2.4,-2.0,-1.566,1.566,2.0,2.4]

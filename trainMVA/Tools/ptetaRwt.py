@@ -235,8 +235,8 @@ def df_pteta_rwt(Mdf,
                                       & (Mdf[eta] <etaw[k+1]) & (Mdf[eta] >etaw[k])
                                       &(Mdf[label]==cand),SumWeightCol].sum()
 
-                    print('Number of xsec events in bkg for pt '+str(ptw[i])+' to '+str(ptw[i+1])+ ' before  weighing = '+str(targetSum))
-                    print('Number of xsec events in signal for pt '+str(ptw[i])+' to '+str(ptw[i+1])+ ' before  weighing = '+str(candSum))
+                    #print('Number of xsec events in bkg for pt '+str(ptw[i])+' to '+str(ptw[i+1])+ ' before  weighing = '+str(targetSum))
+                    #print('Number of xsec events in signal for pt '+str(ptw[i])+' to '+str(ptw[i+1])+ ' before  weighing = '+str(candSum))
 
                     if candSum>0 and targetSum>0:
                         ptwt[i]=candSum/(targetSum)

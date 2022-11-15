@@ -1,5 +1,9 @@
 .swanproject
 */.swanproject
+trainMVA/Configs/__pycache__/MultiClassification_XGBoost_barrel.cpython-39.pyc
+trainMVA/Configs/__pycache__*
+trainMVA/Configs/__pycache__/*.pyc
+trainMVA/Tools/__pycache__/*.pyc
 trainMVA/figures_*
 trainMVA/Output_*
 trainMVA/BinaryClassification_XGBoost_*
